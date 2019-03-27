@@ -2,6 +2,7 @@ package com.qa.users.endpoints;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,26 +14,36 @@ import com.qa.users.service.UserService;
 @RestController
 public class UserController {
 	
+	public UserController(UserService service) {
+		this.service = service;
+	}
+
 	private UserService service;
 	
 	@PostMapping("/createUser")
-	public void createUser(@RequestBody User user) {
-		this.service.createUser(user);
+	public String createUser(@RequestBody User user) {
+		return this.service.createUser(user);
 	}
 	
-	@GetMapping("/readUser")
-	public void getUser(@RequestBody User user) {
-		this.service.readUser(user);
+	
+	@GetMapping("/readUser/{id}")
+	public String getUser(@PathVariable("id") long id) {
+		return this.service.readUser(id).toString();
 	}
 	
-	@PutMapping("/updateUser")
-	public void updateUser(@RequestBody User user) {
-		
+	@PutMapping("/updateUserPassword/{id}")
+	public String updatePassword(@PathVariable("id") long id, @RequestBody String password) {
+		return this.service.updatePassword(id, password);
 	}
 	
-	@DeleteMapping("/deleteUser")
-	public void deleteUser(@RequestBody User user) {
-		
+	@PutMapping("/updateUserRole/{id}") 
+	public String updateRole(@PathVariable("id") long id, @RequestBody String role) {
+		return this.service.updateRole(id, role);
+	}
+	
+	@DeleteMapping("/deleteUser/{id}")
+	public String deleteUser(@PathVariable("id") long id) {
+		return this.service.deleteUser(id);
 	}
 
 }

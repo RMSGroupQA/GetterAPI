@@ -30,6 +30,10 @@ public class User {
 		return userID;
 	}
 	
+	public void setUserID(long userID) {
+		this.userID = userID;
+	}
+	
 	public String getForename() {
 		return forename;
 	}
@@ -75,14 +79,18 @@ public class User {
 		return "User [userID=" + userID + ", forename=" + forename + ", lastname=" + lastname +
 				", role=" + role + ", email=" + email +"]";
 	}
-
-	public User(String forename, String lastname, String password, String role, String email) {
-		super();
-		this.forename = forename;
-		this.lastname = lastname;
-		this.password = password;
-		this.role = role;
-		this.email = email;
+	
+	public User() {
+		
 	}
+
+//	public User(String forename, String lastname, String password, String role, String email) {
+//		super();
+//		this.forename = forename;
+//		this.lastname = lastname;
+//		this.password = password;
+//		this.role = role;
+//		this.email = email;
+//	}
 
 }

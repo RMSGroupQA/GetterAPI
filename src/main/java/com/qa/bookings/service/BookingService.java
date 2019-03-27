@@ -23,7 +23,7 @@ public class BookingService {
 	
 	public String createBooking(Booking booking) {
 		this.bookRepo.save(booking);
-		jmsTemplate.convertAndSend("Booking List", booking);
+//		jmsTemplate.convertAndSend("Booking List", booking);	
 		return "Booking has been successfully created";
 	}
 	
@@ -34,7 +34,6 @@ public class BookingService {
 	public String updateBooking(Booking booking) {
 		this.bookRepo.deleteById(booking.getBookingID());
 		this.bookRepo.save(booking);
-		jmsTemplate.convertAndSend("Booking List", booking);
 		return "Booking has been successfully updated";
 	}
 	

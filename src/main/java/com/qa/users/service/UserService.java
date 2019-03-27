@@ -1,7 +1,5 @@
 package com.qa.users.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import com.qa.users.object.User;
@@ -16,31 +14,42 @@ public class UserService implements UserInterface{
 		this.repo = repo;
 	}
 
-	public Optional<User> readUser(User user) {
-		return repo.findById(user.getUserID());
+	public User readUser(long id) {
+		return repo.findById(id).get();
 	}
 
-	public String updatePassword(User user,String password) {
-		user.setRole(password);
-		return user.getForename() +" " +user.getLastname()+"'s role has beeen changed.";
+	@Override
+	public String updatePassword(long id,String password) {
+		User aUser = readUser(id);
+		
+		if (aUser != null) {			
+			aUser.setPassword(password);
+			repo.save(aUser);
+		}
+		return aUser.getForename() + " " + aUser.getLastname() + "'s password has beeen changed.";
 
 	}
 
-	public String deleteUser(User user) {
-		String name = user.getForename()+" "+user.getLastname();
-		repo.delete(user);
+	public String deleteUser(long id) {
+		String name = readUser(id).getForename()+" "+ readUser(id).getLastname();
+		this.repo.deleteById(id);
 		return name +"has been deleted.";
 
 	}
 
 	public String createUser(User user) {
-		repo.save(user);
+		this.repo.save(user);
 		return "Account has been made.";
 	}
 
-	public String updateRole(User user, String role) {
-		user.setRole(role);
-		return user.getForename() + " " + user.getLastname() + "'s role has beeen changed to " + role + ".";
+	public String updateRole(long id, String role) {
+		User aUser = readUser(id);
+		
+		if (aUser != null) {			
+			aUser.setRole(role);
+			repo.save(aUser);
+		}
+		return aUser.getForename() + " " + aUser.getLastname() + "'s role has beeen changed to " + role + ".";
 	}
 
 }

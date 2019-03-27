@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.qa.room.Room;
+import com.qa.room.object.Room;
 import com.qa.users.object.User;
 
 @Entity
@@ -97,11 +97,14 @@ public class Booking {
 				+ endTime + ", numberOfPeople=" + numberOfPeople + ", cohortBooking=" + cohortBooking + ", title=" + title 
 				+ ", description=" + description + "]";
 	}
+	
+	public Booking() {
+		
+	}
 
-	public Booking(long bookingID, Room room, User user, String startTime, String endTime, int numberOfPeople,
+	public Booking(Room room, User user, String startTime, String endTime, int numberOfPeople,
 			boolean cohortBooking, String title, String description) {
 		super();
-		this.bookingID = bookingID;
 		this.room = room;
 		this.user = user;
 		this.startTime = startTime;
