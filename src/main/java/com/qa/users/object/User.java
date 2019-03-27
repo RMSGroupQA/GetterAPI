@@ -77,12 +77,15 @@ public class User {
 	}
 
 	public User(String forename, String lastname, String password, String role, String email) {
-		super();
 		this.forename = forename;
 		this.lastname = lastname;
 		this.password = password;
 		this.role = role;
 		this.email = email;
+	}
+	
+	public User() {
+		
 	}
 
 }

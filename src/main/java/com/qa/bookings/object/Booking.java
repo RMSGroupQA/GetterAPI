@@ -26,8 +26,7 @@ public class Booking {
 
 	private String startTime;
 	private String endTime;
-	private int numberOfPeople = 1;
-	private boolean cohortBooking = false;
+	//private int numberOfPeople = 1;
 	private String title;
 	private String description;
 	
@@ -59,22 +58,6 @@ public class Booking {
 		this.endTime = endTime;
 	}
 	
-	public int getNumberOfPeople() {
-		return numberOfPeople;
-	}
-	
-	public void setNumberOfPeople(int numberOfPeople) {
-		this.numberOfPeople = numberOfPeople;
-	}
-	
-	public boolean isCohortBooking() {
-		return cohortBooking;
-	}
-	
-	public void setCohortBooking(boolean cohortBooking) {
-		this.cohortBooking = cohortBooking;
-	}
-	
 	public String getTitle() {
 		return title;
 	}
@@ -91,23 +74,14 @@ public class Booking {
 		this.description = description;
 	}
 	
-	@Override
-	public String toString() {
-		return "Booking [bookingID=" + bookingID + ", roomID=" + room.getRoomID() + ", userID=" + user.getUserID() + ", startTime=" + startTime + ", endTime=" 
-				+ endTime + ", numberOfPeople=" + numberOfPeople + ", cohortBooking=" + cohortBooking + ", title=" + title 
-				+ ", description=" + description + "]";
-	}
+	
 
-	public Booking(long bookingID, Room room, User user, String startTime, String endTime, int numberOfPeople,
-			boolean cohortBooking, String title, String description) {
-		super();
-		this.bookingID = bookingID;
+	public Booking(Room room, User user, String startTime, String endTime, String title, String description) {
+		
 		this.room = room;
 		this.user = user;
 		this.startTime = startTime;
 		this.endTime = endTime;
-		this.numberOfPeople = numberOfPeople;
-		this.cohortBooking = cohortBooking;
 		this.title = title;
 		this.description = description;
 	}
