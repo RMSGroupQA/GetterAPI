@@ -27,8 +27,11 @@ public class UserController {
 	
 	
 	@GetMapping("/readUser/{id}")
-	public String getUser(@PathVariable("id") long id) {
-		return this.service.readUser(id).toString();
+	public String readUser(@PathVariable("id") long id) {
+		if(this.service.readUser(id)!=null) {
+			return this.service.readUser(id).toString();
+		}return "No such user.";
+		
 	}
 	
 	@PutMapping("/updateUserPassword/{id}")
