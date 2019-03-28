@@ -15,16 +15,18 @@ public class UserService implements UserInterface {
 	}
 
 	public User readUser(long id) {
-		return repo.findById(id).get();
-		
-		
+		if (repo.existsById(id)) {
+			return repo.findById(id).get();
+		}
+		return null;
+
 	}
 
 	@Override
 	public String updatePassword(long id, String password) {
-		User aUser = readUser(id);
 
-		if (aUser != null) {
+		if (repo.existsById(id)) {
+			User aUser = readUser(id);
 			aUser.setPassword(password);
 			repo.save(aUser);
 			return aUser.getForename() + " " + aUser.getLastname() + "'s password has beeen changed.";
@@ -34,10 +36,10 @@ public class UserService implements UserInterface {
 	}
 
 	public String deleteUser(long id) {
-		if (repo.findById(id) != null) {
+		if (repo.existsById(id)) {
 			String name = readUser(id).getForename() + " " + readUser(id).getLastname();
 			this.repo.deleteById(id);
-			return name + " has been deleted.";
+			return name + "'s account has been deleted.";
 		}
 		return "No such user.";
 
@@ -45,13 +47,13 @@ public class UserService implements UserInterface {
 
 	public String createUser(User user) {
 		this.repo.save(user);
-		return "Account has been made.";
+		return user.getForename() + " " + user.getLastname() + ", you now have an account.";
 	}
 
 	public String updateRole(long id, String role) {
 		User aUser = readUser(id);
 
-		if (aUser != null) {
+		if (repo.existsById(id)) {
 			aUser.setRole(role);
 			repo.save(aUser);
 		}

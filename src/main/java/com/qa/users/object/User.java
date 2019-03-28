@@ -22,7 +22,7 @@ public class User {
 	private String forename;
 	private String lastname;
 	private String password;
-	private String role;
+	private String role="Trainee";
 	private String email;
 	
 	

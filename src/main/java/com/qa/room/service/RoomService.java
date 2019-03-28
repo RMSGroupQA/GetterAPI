@@ -1,8 +1,11 @@
 package com.qa.room.service;
 
+import org.springframework.stereotype.Service;
+
 import com.qa.room.object.Room;
 import com.qa.room.repo.RoomRepo;
 
+@Service
 public class RoomService implements RoomInterface{
 	
 	private RoomRepo repo;
@@ -14,12 +17,15 @@ public class RoomService implements RoomInterface{
 	@Override
 	public String createRoom(Room room) {
 		this.repo.save(room);
-		return "Room has been made,";
+		return "Room has been made.";
 	}
 
 	@Override
 	public Room readRoom(long id) {
-		return repo.findById(id).get();
+		if(repo.existsById(id)) {
+			return repo.findById(id).get();
+		}return null;
+		
 	}
 
 	@Override
@@ -30,9 +36,12 @@ public class RoomService implements RoomInterface{
 
 	@Override
 	public String deleteRoom(long id) {
-		String name = readRoom(id).getRoomName();
-		this.repo.deleteById(id);
-		return name + " has been deleted.";
+		if(repo.existsById(id)) {
+			String name = readRoom(id).getRoomName();
+			this.repo.deleteById(id);
+			return name + " has been deleted.";
+		}return "Room doesn't exist.";
+		
 	}
 
 }

@@ -27,7 +27,10 @@ public class BookingController {
 	
 	@GetMapping("/readBooking/{id}")
 	public String readBooking(@PathVariable("id") long id) {
-		return this.service.readBooking(id).toString();
+		if(service.readBooking(id)!=null) {
+			return this.service.readBooking(id).toString();
+		}return "Booking doesn't exist.";
+		
 	}
 	
 	@PutMapping("/updateBooking/{id}") 

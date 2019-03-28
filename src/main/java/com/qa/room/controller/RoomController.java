@@ -29,7 +29,10 @@ public class RoomController {
 	
 	@GetMapping("/readRoom/{id}")
 	public String getRoom(@PathVariable("id") long id) {
-		return this.service.readRoom(id).toString();
+		if(service.readRoom(id)!=null) {
+			return this.service.readRoom(id).toString();
+		}
+		return "Room doesn't exist";
 	}
 	
 	@PutMapping("/updateRoom/{id}") 
