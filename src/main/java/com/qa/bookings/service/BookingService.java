@@ -1,7 +1,5 @@
 package com.qa.bookings.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
@@ -10,7 +8,7 @@ import com.qa.bookings.object.Booking;
 import com.qa.bookings.repository.BookingRepo;
 
 @Service
-public class BookingService {
+public class BookingService implements BookingInterface{
 	
 	private BookingRepo bookRepo;
 	
@@ -27,19 +25,28 @@ public class BookingService {
 		return "Booking has been successfully created";
 	}
 	
-	public Optional<Booking> readBooking(Booking booking) {
-		return bookRepo.findById(booking.getBookingID());
+	@Override
+	public Booking readBooking(long id) {
+		return bookRepo.findById(id).get();
 	}
-	
-	public String updateBooking(Booking booking) {
-		this.bookRepo.deleteById(booking.getBookingID());
-		this.bookRepo.save(booking);
-		return "Booking has been successfully updated";
+
+	@Override
+	public String updateBooking(long id, String endTime) {
+		Booking aBook = readBooking(id);
+		
+		if (aBook != null) {
+			aBook.setEndTime(endTime);
+			bookRepo.save(aBook);
+			return "End time has been changed.";
+		}
+		
+		return "Booking doesn't exist.";
 	}
-	
-	public String deleteBooking(Booking booking) {
-		this.bookRepo.delete(booking);
-		return "Booking has been successfully deleted";
+
+	@Override
+	public String deleteBooking(long id) {
+		bookRepo.deleteById(id);
+		return "Booking deleted.";
 	}
 
 }

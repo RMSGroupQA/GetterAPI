@@ -25,8 +25,9 @@ public class UserService implements UserInterface{
 		if (aUser != null) {			
 			aUser.setPassword(password);
 			repo.save(aUser);
-		}
-		return aUser.getForename() + " " + aUser.getLastname() + "'s password has beeen changed.";
+			return aUser.getForename() + " " + aUser.getLastname() + "'s password has beeen changed.";
+		}return "No such user.";
+		
 
 	}
 
