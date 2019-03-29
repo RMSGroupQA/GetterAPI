@@ -7,52 +7,52 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.qa.users.object.User;
+import com.qa.users.object.Employee;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserEntityTest {
 
-	User testUser = new User();	
+	Employee testEmployee = new Employee();	
 
 	@Test
 	public void forenameTest() {
-		testUser.setForename("a");
-		assertEquals("a", testUser.getForename());
+		testEmployee.setForename("a");
+		assertEquals("a", testEmployee.getForename());
 	}
 
 	@Test
 	public void surnameTest() {
-		testUser.setLastname("a");
-		assertEquals("a", testUser.getLastname());
+		testEmployee.setLastname("a");
+		assertEquals("a", testEmployee.getLastname());
 	}
 
 	@Test
 	public void roleTest() {
-		testUser.setRole("a");
-		assertEquals("a", testUser.getRole());
+		testEmployee.setRole("a");
+		assertEquals("a", testEmployee.getRole());
 	}
 
 	@Test
 	public void emailTest() {
-		testUser.setEmail("a");
-		assertEquals("a", testUser.getEmail());
+		testEmployee.setEmail("a");
+		assertEquals("a", testEmployee.getEmail());
 	}
 
 	@Test
 	public void passwordTest() {
-		testUser.setPassword("a");
-		assertEquals("a", testUser.getPassword());
+		testEmployee.setPassword("a");
+		assertEquals("a", testEmployee.getPassword());
 	}
 	
 	@Test
 	public void idTest() {
-		assertEquals(0,testUser.getUserID());
+		assertEquals(0,testEmployee.getEmployeeID());
 	}
 	
 	@Test
 	public void StringTest() {
-		assertEquals("User [userID=0, forename=null, lastname=null, role=null, email=null]",testUser.toString());
+		assertEquals("Employee [employeeID=0, forename=null, lastname=null, role=Trainee, email=null]",testEmployee.toString());
 	}
 
 }

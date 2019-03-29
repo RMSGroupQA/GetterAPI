@@ -8,7 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.qa.bookings.object.Booking;
-import com.qa.users.object.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -1,5 +1,6 @@
 package com.qa.bookings.endpoints;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +20,12 @@ public class BookingController {
 	public BookingController(BookingService service) {
 		this.service = service;
 	}
-	
+	@CrossOrigin
 	@PostMapping("/createBooking")
 	public String createBooking(@RequestBody Booking booking) {
 		return this.service.createBooking(booking);
 	}
-	
+	@CrossOrigin
 	@GetMapping("/readBooking/{id}")
 	public String readBooking(@PathVariable("id") long id) {
 		if(service.readBooking(id)!=null) {
@@ -32,12 +33,12 @@ public class BookingController {
 		}return "Booking doesn't exist.";
 		
 	}
-	
+	@CrossOrigin
 	@PutMapping("/updateBooking/{id}") 
 	public String updateRole(@PathVariable("id") long id, @RequestBody String role) {
 		return this.service.updateBooking(id, role);
 	}
-	
+	@CrossOrigin
 	@DeleteMapping("/deleteBooking/{id}")
 	public String deleteUser(@PathVariable("id") long id) {
 		return this.service.deleteBooking(id);

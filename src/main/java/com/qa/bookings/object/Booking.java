@@ -2,25 +2,29 @@ package com.qa.bookings.object;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import com.qa.room.object.Room;
-import com.qa.users.object.User;
+import com.qa.users.object.Employee;
 
 @Entity
 public class Booking {
 
 	@Override
 	public String toString() {
-		return "Booking [bookingID=" + bookingID + ", room=" + room + ", user=" + user + ", startTime=" + startTime
+		return "Booking [bookingID=" + bookingID + ", room=" + room + ", employee=" + employee + ", startTime=" + startTime
 				+ ", endTime=" + endTime + ", numberOfPeople=" + numberOfPeople + ", title=" + title + ", description="
 				+ description + "]";
 	}
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="native", strategy=GenerationType.AUTO)
+	@GenericGenerator(name="native", strategy="native")
 	private long bookingID;
 
 	@ManyToOne
@@ -28,8 +32,8 @@ public class Booking {
 	private Room room;
 
 	@ManyToOne
-	@JoinColumn(name = "userID")
-	private User user;
+	@JoinColumn(name = "employeeID")
+	private Employee employee;
 
 	private String startTime;
 	private String endTime;
@@ -45,8 +49,8 @@ public class Booking {
 		return room;
 	}
 
-	public User getUser() {
-		return user;
+	public Employee getEmployee() {
+		return employee;
 	}
 
 	public String getStartTime() {

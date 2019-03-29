@@ -7,13 +7,13 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.qa.users.object.User;
+import com.qa.users.object.Employee;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserServiceTest {
 	
-	User testUser = new User();
+	Employee testUser = new Employee();
 	
 	@Test
 	public void readTest() {
