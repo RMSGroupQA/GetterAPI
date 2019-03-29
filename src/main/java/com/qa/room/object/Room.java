@@ -73,10 +73,6 @@ public class Room {
 		this.numOfComputers = numOfComputers;
 	}
 
-	public Room() {
-
-	}
-
 	@Override
 	public String toString() {
 		return "Room [roomID=" + roomID + ", bookings=" + bookings + ", building=" + building + ", floor=" + floor

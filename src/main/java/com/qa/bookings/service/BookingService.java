@@ -21,7 +21,6 @@ public class BookingService implements BookingInterface {
 
 	public String createBooking(Booking booking) {
 		this.bookRepo.save(booking);
-//		jmsTemplate.convertAndSend("Booking List", booking);	
 		return "Booking has been successfully created.";
 	}
 
