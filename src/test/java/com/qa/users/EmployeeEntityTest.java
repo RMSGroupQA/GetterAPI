@@ -11,7 +11,7 @@ import com.qa.users.object.Employee;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserEntityTest {
+public class EmployeeEntityTest {
 
 	Employee testEmployee = new Employee();	
 

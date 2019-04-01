@@ -1,5 +1,7 @@
 package com.qa.room.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.qa.room.object.Room;
@@ -26,6 +28,10 @@ public class RoomService implements RoomInterface{
 			return repo.findById(id).get();
 		}return null;
 		
+	}
+	
+	public List<Room> getAllRooms(){
+		return repo.findAll();
 	}
 
 	@Override

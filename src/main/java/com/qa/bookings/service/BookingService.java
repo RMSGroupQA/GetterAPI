@@ -37,7 +37,7 @@ public class BookingService implements BookingInterface {
 	public String updateBooking(long id, String endTime) {
 
 		if (bookRepo.existsById(id)) {
-			Booking aBook = readBooking(id);
+			Booking aBook = bookRepo.findById(id).get();
 			aBook.setEndTime(endTime);
 			bookRepo.save(aBook);
 			return "End time has been changed.";

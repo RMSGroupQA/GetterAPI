@@ -1,5 +1,7 @@
 package com.qa.room.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +36,12 @@ public class RoomController {
 			return this.service.readRoom(id).toString();
 		}
 		return "Room doesn't exist";
+	}
+	
+	@CrossOrigin
+	@GetMapping("/getAllRooms")
+	public List<Room> getAllRooms() {
+		return service.getAllRooms();
 	}
 
 	@CrossOrigin

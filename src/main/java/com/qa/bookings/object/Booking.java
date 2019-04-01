@@ -92,6 +92,15 @@ public class Booking {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public Booking(long bookingID, String title) {
+		this.bookingID = bookingID;
+		this.title = title;
+	}
+	
+	public Booking() {
+		
+	}
 
 	
 }

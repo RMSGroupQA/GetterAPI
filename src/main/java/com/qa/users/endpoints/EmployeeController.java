@@ -29,31 +29,31 @@ public class EmployeeController {
 	}
 
 	@CrossOrigin
-	@GetMapping("/readEmployee/{id}")
-	public String readEmployee(@PathVariable("id") long id) {
-		if (this.service.readEmployee(id) != null) {
-			return this.service.readEmployee(id).toString();
+	@GetMapping("/readEmployee/{email}")
+	public String readEmployee(@PathVariable("email") String email) {
+		if (this.service.readEmployee(email) != null) {
+			return this.service.readEmployee(email).toString();
 		}
 		return "No such employee.";
 
 	}
-
+	
 	@CrossOrigin
-	@PutMapping("/updateEmployeePassword/{id}")
-	public String updatePassword(@PathVariable("id") long id, @RequestBody String password) {
-		return this.service.updateEmployeePassword(id, password);
+	@PutMapping("/updateEmployeePassword/{email}")
+	public String updatePassword(@PathVariable("email") String email, @RequestBody String password) {
+		return this.service.updateEmployeePassword(email, password);
 	}
 
 	@CrossOrigin
-	@PutMapping("/updateEmployeeRole/{id}")
-	public String updateRole(@PathVariable("id") long id, @RequestBody String role) {
-		return this.service.updateEmployeeRole(id, role);
+	@PutMapping("/updateEmployeeRole/{email}")
+	public String updateRole(@PathVariable("email") String email, @RequestBody String role) {
+		return this.service.updateEmployeeRole(email, role);
 	}
 
 	@CrossOrigin
-	@DeleteMapping("/deleteEmployee/{id}")
-	public String deleteEmployee(@PathVariable("id") long id) {
-		return this.service.deleteEmployee(id);
+	@DeleteMapping("/deleteEmployee/{email}")
+	public String deleteEmployee(@PathVariable("email") String email) {
+		return this.service.deleteEmployee(email);
 	}
 
 }
