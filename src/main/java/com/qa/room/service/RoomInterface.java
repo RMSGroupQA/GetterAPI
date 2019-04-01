@@ -5,8 +5,8 @@ import com.qa.room.object.Room;
 public interface RoomInterface {
 	
 	public String createRoom(Room room);
-	public Room readRoom(long id);
-	public String updateRoom(long id,String role);
-	public String deleteRoom(long id);
+	public Room readRoom(String roomname);
+	public String updateRoom(String roomname,String role);
+	public String deleteRoom(String roomname);
 
 }

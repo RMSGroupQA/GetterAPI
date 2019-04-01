@@ -23,7 +23,7 @@ public class Room {
 	@OneToMany(mappedBy = "room")
 	private Set<Booking> bookings;
 
-	private String building;
+	private String building = "Anchorage 1";
 	private String floor;
 	private String roomName;
 	private int numOfSeats;

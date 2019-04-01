@@ -23,9 +23,9 @@ public class RoomService implements RoomInterface{
 	}
 
 	@Override
-	public Room readRoom(long id) {
-		if(repo.existsById(id)) {
-			return repo.findById(id).get();
+	public Room readRoom(String roomname) {
+		if(repo.existsByRoomName(roomname)) {
+			return repo.findByRoomName(roomname);
 		}return null;
 		
 	}
@@ -35,16 +35,16 @@ public class RoomService implements RoomInterface{
 	}
 
 	@Override
-	public String updateRoom(long id, String role) {
+	public String updateRoom(String roomname, String role) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String deleteRoom(long id) {
-		if(repo.existsById(id)) {
-			String name = readRoom(id).getRoomName();
-			this.repo.deleteById(id);
+	public String deleteRoom(String roomname) {
+		if(repo.existsByRoomName(roomname)) {
+			String name = readRoom(roomname).getRoomName();
+			this.repo.deleteById(repo.findByRoomName(roomname).getRoomID());
 			return name + " has been deleted.";
 		}return "Room doesn't exist.";
 		

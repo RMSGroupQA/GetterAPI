@@ -7,5 +7,9 @@ import com.qa.room.object.Room;
 
 @Repository
 public interface RoomRepo extends JpaRepository<Room, Long>{
+
+	boolean existsByRoomName(String roomname);
+
+	Room findByRoomName(String roomname);
 	
 }

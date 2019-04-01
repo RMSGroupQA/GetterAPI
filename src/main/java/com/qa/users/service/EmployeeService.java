@@ -15,6 +15,9 @@ public class EmployeeService implements EmployeeInterface {
 	}
 
 	public String createEmployee(Employee employee) {
+		if(repo.existsByEmail(employee.getEmail())) {
+			return "This account already exists.";
+		}
 		this.repo.save(employee);
 		return employee.getForename() + " " + employee.getLastname() + ", you now have an account.";
 	}

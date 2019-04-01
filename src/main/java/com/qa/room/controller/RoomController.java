@@ -30,10 +30,10 @@ public class RoomController {
 	}
 
 	@CrossOrigin
-	@GetMapping("/readRoom/{id}")
-	public String getRoom(@PathVariable("id") long id) {
-		if (service.readRoom(id) != null) {
-			return this.service.readRoom(id).toString();
+	@GetMapping("/readRoom/{roomName}")
+	public String getRoom(@PathVariable("roomName") String roomName) {
+		if (service.readRoom(roomName) != null) {
+			return this.service.readRoom(roomName).toString();
 		}
 		return "Room doesn't exist";
 	}
@@ -45,15 +45,15 @@ public class RoomController {
 	}
 
 	@CrossOrigin
-	@PutMapping("/updateRoom/{id}")
-	public String updateRoom(@PathVariable("id") long id, @RequestBody String role) {
-		return this.service.updateRoom(id, role);
+	@PutMapping("/updateRoom/{roomName}")
+	public String updateRoom(@PathVariable("roomName") String roomname, @RequestBody String role) {
+		return this.service.updateRoom(roomname, role);
 	}
 
 	@CrossOrigin
-	@DeleteMapping("/deleteRoom/{id}")
-	public String deleteUser(@PathVariable("id") long id) {
-		return this.service.deleteRoom(id);
+	@DeleteMapping("/deleteRoom/{roomName}")
+	public String deleteUser(@PathVariable("roomName") String roomName) {
+		return this.service.deleteRoom(roomName);
 	}
 
 }
