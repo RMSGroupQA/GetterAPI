@@ -47,7 +47,7 @@ public class RoomEntityTest {
 
 	@Test
 	public void StringTest() {
-		assertEquals("Room [roomID=0, bookings=null, building=null, floor=null, roomName=null, numOfSeats=0, numOfComputers=0]", testRoom.toString());
+		assertEquals("Room [roomID=0, bookings=null, building=Anchorage 1, floor=null, roomName=null, numOfSeats=0, numOfComputers=0]", testRoom.toString());
 	}
 
 }
