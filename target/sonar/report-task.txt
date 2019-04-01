@@ -1,6 +1,0 @@
-projectKey=com.qa:GettersAPI2
-serverUrl=http://localhost:9000
-serverVersion=6.7.6.38781
-dashboardUrl=http://localhost:9000/dashboard/index/com.qa:GettersAPI2
-ceTaskId=AWnIshz_5MzjJE2-DHV5
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWnIshz_5MzjJE2-DHV5

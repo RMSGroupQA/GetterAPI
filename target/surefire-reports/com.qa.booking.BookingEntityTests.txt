@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.booking.BookingEntityTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.053 s <<< FAILURE! - in com.qa.booking.BookingEntityTests
+initializationError(com.qa.booking.BookingEntityTests)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Found multiple @SpringBootConfiguration annotated classes [Generic bean: class [com.qa.GettersApi2Application]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [/home/jenkins/rmssystem/rms_getters/target/classes/com/qa/GettersApi2Application.class], Generic bean: class [com.qa.GettersApplication]; scope=; abstract=false; lazyInit=false; autowireMode=0; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=null; initMethodName=null; destroyMethodName=null; defined in file [/home/jenkins/rmssystem/rms_getters/target/classes/com/qa/GettersApplication.class]]
+

@@ -1,0 +1,10 @@
+com/qa/booking/BookingServiceTests.class
+com/qa/room/RoomEntityTest.class
+com/qa/booking/BookingEntityTests.class
+com/qa/SpringRunner.class
+com/qa/users/EmployeeServiceTest.class
+com/qa/users/EmployeeConstants.class
+com/qa/gettersapi/GettersApi2ApplicationTests.class
+com/qa/Runner.class
+com/qa/booking/BookingConstants.class
+com/qa/users/EmployeeEntityTest.class
