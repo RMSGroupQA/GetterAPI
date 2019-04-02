@@ -35,12 +35,6 @@ public class RoomService implements RoomInterface{
 	}
 
 	@Override
-	public String updateRoom(String roomname, String role) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public String deleteRoom(String roomname) {
 		if(repo.existsByRoomName(roomname)) {
 			String name = readRoom(roomname).getRoomName();

@@ -45,12 +45,6 @@ public class RoomController {
 	}
 
 	@CrossOrigin
-	@PutMapping("/updateRoom/{roomName}")
-	public String updateRoom(@PathVariable("roomName") String roomname, @RequestBody String role) {
-		return this.service.updateRoom(roomname, role);
-	}
-
-	@CrossOrigin
 	@DeleteMapping("/deleteRoom/{roomName}")
 	public String deleteUser(@PathVariable("roomName") String roomName) {
 		return this.service.deleteRoom(roomName);
