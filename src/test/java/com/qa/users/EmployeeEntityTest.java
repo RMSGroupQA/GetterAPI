@@ -47,6 +47,7 @@ public class EmployeeEntityTest {
 	
 	@Test
 	public void idTest() {
+		testEmployee.setEmployeeID(0);
 		assertEquals(0,testEmployee.getEmployeeID());
 	}
 	
