@@ -11,9 +11,9 @@ public class BookingConstants {
 	
 	public static final long ID = 1L;
 	public static final String END_TIME = "9:00";
-	public static final String CREATE_BOOKING_MESSAGE = "Booking has been successfully created.";
-	public static final String UPDATE_BOOKING_MESSAGE = "End time has been changed.";
+	public static final String CREATE_BOOKING_MESSAGE = "Booking has been created. Your Booking ID is 1.";
+	public static final String UPDATE_BOOKING_MESSAGE = "End time has changed.";
 	public static final String DELETE_BOOKING_MESSAGE = "Booking deleted.";
-	public static final String UNSUCCESSFUL_BOOKING_MESSAGE = "Booking doesn't exist.";
+	public static final String UNSUCCESSFUL_BOOKING_MESSAGE = "This booking doesn't exist.";
 
 }

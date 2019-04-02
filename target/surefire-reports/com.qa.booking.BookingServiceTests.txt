@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.booking.BookingServiceTests
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.129 s <<< FAILURE! - in com.qa.booking.BookingServiceTests
+updateBooking(com.qa.booking.BookingServiceTests)  Time elapsed: 0.02 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<End time has [been ]changed.> but was:<End time has []changed.>
+	at com.qa.booking.BookingServiceTests.updateBooking(BookingServiceTests.java:57)
+
+updateNonExistingBooking(com.qa.booking.BookingServiceTests)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[B]ooking doesn't exist...> but was:<[This b]ooking doesn't exist...>
+	at com.qa.booking.BookingServiceTests.updateNonExistingBooking(BookingServiceTests.java:64)
+
+createBookingTest(com.qa.booking.BookingServiceTests)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<Booking has been [successfully created].> but was:<Booking has been [created. Your Booking ID is 1].>
+	at com.qa.booking.BookingServiceTests.createBookingTest(BookingServiceTests.java:32)
+
+deleteNonExistingBooking(com.qa.booking.BookingServiceTests)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[B]ooking doesn't exist...> but was:<[This b]ooking doesn't exist...>
+	at com.qa.booking.BookingServiceTests.deleteNonExistingBooking(BookingServiceTests.java:78)
+
