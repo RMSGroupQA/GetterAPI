@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.bookings.object.Booking;
 import com.qa.bookings.service.BookingService;
+import com.qa.Constants;
 
 @RestController
 public class BookingController {
@@ -30,17 +31,17 @@ public class BookingController {
 	public String readBooking(@PathVariable("id") long id) {
 		if(service.readBooking(id)!=null) {
 			return this.service.readBooking(id).toString();
-		}return "Booking doesn't exist.";
+		}return Constants.BOOK_FAILURE;
 		
 	}
 	@CrossOrigin
 	@PutMapping("/updateBooking/{id}") 
-	public String updateRole(@PathVariable("id") long id, @RequestBody String role) {
+	public String updateBooking(@PathVariable("id") long id, @RequestBody String role) {
 		return this.service.updateBooking(id, role);
 	}
 	@CrossOrigin
 	@DeleteMapping("/deleteBooking/{id}")
-	public String deleteUser(@PathVariable("id") long id) {
+	public String deleteBooking(@PathVariable("id") long id) {
 		return this.service.deleteBooking(id);
 	}
 	

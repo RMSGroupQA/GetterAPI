@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.qa.users.object.Employee;
 import com.qa.users.repository.EmployeeRepo;
+import com.qa.Constants;
 
 @Service
 public class EmployeeService implements EmployeeInterface {
@@ -15,11 +16,11 @@ public class EmployeeService implements EmployeeInterface {
 	}
 
 	public String createEmployee(Employee employee) {
-		if(repo.existsByEmail(employee.getEmail())) {
-			return "This account already exists.";
+		if (repo.existsByEmail(employee.getEmail())) {
+			return Constants.REPEAT_EMPLOYEE;
 		}
 		this.repo.save(employee);
-		return employee.getForename() + " " + employee.getLastname() + ", you now have an account.";
+		return employee.getForename() + " " + employee.getLastname() + Constants.CREATE_EMPLOYEE;
 	}
 
 	public Employee readEmployee(String email) {
@@ -29,16 +30,16 @@ public class EmployeeService implements EmployeeInterface {
 		return null;
 
 	}
-	
+
 	public String updateEmployeePassword(String email, String password) {
 
 		if (repo.existsByEmail(email)) {
 			Employee aUser = readEmployee(email);
 			aUser.setPassword(password);
 			repo.save(aUser);
-			return aUser.getForename() + " " + aUser.getLastname() + "'s password has beeen changed.";
+			return aUser.getForename() + " " + aUser.getLastname() + Constants.UPDATE_PASS;
 		}
-		return "No such employee.";
+		return Constants.EMPLOYEE_FAILURE;
 
 	}
 
@@ -46,21 +47,22 @@ public class EmployeeService implements EmployeeInterface {
 		if (repo.existsByEmail(email)) {
 			String name = readEmployee(email).getForename() + " " + readEmployee(email).getLastname();
 			repo.deleteById(repo.findByEmail(email).getEmployeeID());
-			return name + "'s account has been deleted.";
+			return name + Constants.DELETE_EMPLOYEE;
 		}
-		return "No such user.";
+		return Constants.EMPLOYEE_FAILURE;
 
 	}
 
 	public String updateEmployeeRole(String email, String role) {
-		
+
 		if (repo.existsByEmail(email)) {
 			Employee aUser = readEmployee(email);
 			aUser.setRole(role);
 			repo.save(aUser);
-			return aUser.getForename() + " " + aUser.getLastname() + "'s role has beeen changed to " + role + ".";
-		}return "No such user.";
-		
+			return aUser.getForename() + " " + aUser.getLastname() + Constants.UPDATE_ROLE + role + ".";
+		}
+		return Constants.EMPLOYEE_FAILURE;
+
 	}
 
 }

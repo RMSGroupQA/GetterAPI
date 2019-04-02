@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.qa.bookings.object.Booking;
 import com.qa.bookings.repository.BookingRepo;
+import com.qa.Constants;
 
 @Service
 public class BookingService implements BookingInterface {
@@ -21,7 +22,7 @@ public class BookingService implements BookingInterface {
 
 	public String createBooking(Booking booking) {
 		this.bookRepo.save(booking);
-		return "Booking has been successfully created.";
+		return Constants.CREATE_BOOK + booking.getBookingID()+".";
 	}
 
 	@Override
@@ -40,19 +41,19 @@ public class BookingService implements BookingInterface {
 			Booking aBook = bookRepo.findById(id).get();
 			aBook.setEndTime(endTime);
 			bookRepo.save(aBook);
-			return "End time has been changed.";
+			return Constants.UPDATE_BOOK;
 		}
 
-		return "Booking doesn't exist.";
+		return Constants.BOOK_FAILURE;
 	}
 
 	@Override
 	public String deleteBooking(long id) {
 		if (bookRepo.existsById(id)) {
 			bookRepo.deleteById(id);
-			return "Booking deleted.";
+			return Constants.DELETE_BOOK;
 		}
-		return "Booking doesn't exist.";
+		return Constants.BOOK_FAILURE;
 
 	}
 

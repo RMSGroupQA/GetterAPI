@@ -15,7 +15,6 @@ import com.qa.users.object.Employee;
 import com.qa.users.service.EmployeeService;
 import com.qa.Constants;
 
-
 @RestController
 public class EmployeeController {
 
@@ -30,14 +29,13 @@ public class EmployeeController {
 	@CrossOrigin
 	@PostMapping("/createEmployee")
 	public String createEmployee(@RequestBody Employee employee) {
-		if(service.createEmployee(employee).equals("This account already exists.")) {
+		if (service.createEmployee(employee).equals("This account already exists.")) {
 			return this.service.createEmployee(employee);
-		}else {
+		} else {
 			restTemplate.postForEntity(Constants.SENDEMAIL, employee, String.class).getBody();
 			return this.service.createEmployee(employee);
 		}
-		
-		
+
 	}
 
 	@CrossOrigin
@@ -46,10 +44,10 @@ public class EmployeeController {
 		if (this.service.readEmployee(email) != null) {
 			return this.service.readEmployee(email).toString();
 		}
-		return "No such employee.";
+		return Constants.EMPLOYEE_FAILURE;
 
 	}
-	
+
 	@CrossOrigin
 	@PutMapping("/updateEmployeePassword/{email}")
 	public String updatePassword(@PathVariable("email") String email, @RequestBody String password) {

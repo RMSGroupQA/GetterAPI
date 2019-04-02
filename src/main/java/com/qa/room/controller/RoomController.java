@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.room.object.Room;
 import com.qa.room.service.RoomService;
+import com.qa.Constants;
 
 @RestController
 public class RoomController {
@@ -35,7 +35,7 @@ public class RoomController {
 		if (service.readRoom(roomName) != null) {
 			return this.service.readRoom(roomName).toString();
 		}
-		return "Room doesn't exist";
+		return Constants.ROOM_FAILURE;
 	}
 	
 	@CrossOrigin
@@ -46,7 +46,7 @@ public class RoomController {
 
 	@CrossOrigin
 	@DeleteMapping("/deleteRoom/{roomName}")
-	public String deleteUser(@PathVariable("roomName") String roomName) {
+	public String deleteRoom(@PathVariable("roomName") String roomName) {
 		return this.service.deleteRoom(roomName);
 	}
 

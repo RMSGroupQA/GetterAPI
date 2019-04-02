@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.qa.room.object.Room;
 import com.qa.room.repo.RoomRepo;
+import com.qa.Constants;
 
 @Service
 public class RoomService implements RoomInterface{
@@ -39,8 +40,8 @@ public class RoomService implements RoomInterface{
 		if(repo.existsByRoomName(roomname)) {
 			String name = readRoom(roomname).getRoomName();
 			this.repo.deleteById(repo.findByRoomName(roomname).getRoomID());
-			return name + " has been deleted.";
-		}return "Room doesn't exist.";
+			return name + Constants.DELETE_ROOM;
+		}return Constants.ROOM_FAILURE;
 		
 	}
 
