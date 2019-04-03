@@ -1,0 +1,7 @@
+com\qa\users\EmployeeConstants.class
+com\qa\booking\BookingConstants.class
+com\qa\booking\BookingEntityTests.class
+com\qa\booking\BookingServiceTests.class
+com\qa\Runner.class
+com\qa\users\EmployeeEntityTest.class
+com\qa\room\RoomEntityTest.class
