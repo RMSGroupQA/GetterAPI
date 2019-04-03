@@ -75,7 +75,10 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "{\"forename\":\""+forename+",\"lastname\":"+lastname+", \"email\":"+email+", \"role\":"+role+"}";
+		return "Employee [employeeID=" + employeeID + ", forename=" + forename
+				+ ", lastname=" + lastname + ", role=" + role + ", email=" + email + "]";
 	}
+
+	
 
 }
