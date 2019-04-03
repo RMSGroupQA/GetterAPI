@@ -24,13 +24,13 @@ public class RoomController {
 	private RoomService service;
 
 	@CrossOrigin
-	@PostMapping("/createRoom")
+	@PostMapping("/getters/createRoom")
 	public String createRoom(@RequestBody Room room) {
 		return this.service.createRoom(room);
 	}
 
 	@CrossOrigin
-	@GetMapping("/readRoom/{roomName}")
+	@GetMapping("/getters/readRoom/{roomName}")
 	public String getRoom(@PathVariable("roomName") String roomName) {
 		if (service.readRoom(roomName) != null) {
 			return this.service.readRoom(roomName).toString();
@@ -39,13 +39,13 @@ public class RoomController {
 	}
 	
 	@CrossOrigin
-	@GetMapping("/getAllRooms")
+	@GetMapping("/getters/getAllRooms")
 	public List<Room> getAllRooms() {
 		return service.getAllRooms();
 	}
 
 	@CrossOrigin
-	@DeleteMapping("/deleteRoom/{roomName}")
+	@DeleteMapping("/getters/deleteRoom/{roomName}")
 	public String deleteRoom(@PathVariable("roomName") String roomName) {
 		return this.service.deleteRoom(roomName);
 	}

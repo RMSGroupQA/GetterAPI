@@ -27,19 +27,20 @@ public class EmployeeController {
 	private RestTemplate restTemplate;
 
 	@CrossOrigin
-	@PostMapping("/createEmployee")
+	@PostMapping("/emailVerify/getters/createEmployee")
 	public String createEmployee(@RequestBody Employee employee) {
-		if (service.createEmployee(employee).equals("This account already exists.")) {
-			return this.service.createEmployee(employee);
+		String status = this.service.createEmployee(employee);
+		if (status.equals("This account already exists.")) {
+			return status;
 		} else {
-			restTemplate.postForEntity(Constants.SEND_EMAIL, employee, String.class).getBody();
-			return this.service.createEmployee(employee);
+			restTemplate.postForEntity(Constants.SENDEMAIL, employee, String.class).getBody();
+			return status;
 		}
 
 	}
 
 	@CrossOrigin
-	@GetMapping("/readEmployee/{email}")
+	@GetMapping("/getters/readEmployee/{email}")
 	public String readEmployee(@PathVariable("email") String email) {
 		if (this.service.readEmployee(email) != null) {
 			return this.service.readEmployee(email).toString();
@@ -49,19 +50,19 @@ public class EmployeeController {
 	}
 
 	@CrossOrigin
-	@PutMapping("/updateEmployeePassword/{email}")
+	@PutMapping("/getters/updateEmployeePassword/{email}")
 	public String updatePassword(@PathVariable("email") String email, @RequestBody String password) {
 		return this.service.updateEmployeePassword(email, password);
 	}
 
 	@CrossOrigin
-	@PutMapping("/updateEmployeeRole/{email}")
+	@PutMapping("/getters/updateEmployeeRole/{email}")
 	public String updateRole(@PathVariable("email") String email, @RequestBody String role) {
 		return this.service.updateEmployeeRole(email, role);
 	}
 
 	@CrossOrigin
-	@DeleteMapping("/deleteEmployee/{email}")
+	@DeleteMapping("/getters/deleteEmployee/{email}")
 	public String deleteEmployee(@PathVariable("email") String email) {
 		return this.service.deleteEmployee(email);
 	}
