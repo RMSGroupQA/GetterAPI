@@ -28,10 +28,10 @@ public class BookingController {
 	}
 	@CrossOrigin
 	@GetMapping("/readBooking/{id}")
-	public String readBooking(@PathVariable("id") long id) {
+	public Booking readBooking(@PathVariable("id") long id) {
 		if(service.readBooking(id)!=null) {
-			return this.service.readBooking(id).toString();
-		}return Constants.BOOK_FAILURE;
+			return this.service.readBooking(id);
+		}return null;
 		
 	}
 	@CrossOrigin

@@ -32,7 +32,7 @@ public class EmployeeController {
 		if (service.createEmployee(employee).equals("This account already exists.")) {
 			return this.service.createEmployee(employee);
 		} else {
-			restTemplate.postForEntity(Constants.SENDEMAIL, employee, String.class).getBody();
+			restTemplate.postForEntity(Constants.SEND_EMAIL, employee, String.class).getBody();
 			return this.service.createEmployee(employee);
 		}
 

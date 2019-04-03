@@ -1,7 +1,5 @@
 package com.qa.bookings.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import com.qa.bookings.object.Booking;
@@ -17,12 +15,9 @@ public class BookingService implements BookingInterface {
 		this.bookRepo = bookRepo;
 	}
 
-	@Autowired
-	public JmsTemplate jmsTemplate;
-
 	public String createBooking(Booking booking) {
 		this.bookRepo.save(booking);
-		return Constants.CREATE_BOOK + booking.getBookingID()+".";
+		return Constants.CREATE_BOOK + booking.getBookingID() + ".";
 	}
 
 	@Override
