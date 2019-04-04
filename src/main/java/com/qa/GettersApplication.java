@@ -12,9 +12,7 @@ import com.qa.users.object.Employee;
 public class GettersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GettersApplication.class, args);
-		Employee book = new Employee();
-		System.out.println(book.toString());
+		SpringApplication.run(GettersApplication.class, args);		
 	}
 
 }

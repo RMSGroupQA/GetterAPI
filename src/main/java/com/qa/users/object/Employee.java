@@ -4,8 +4,11 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
 
 import com.qa.bookings.object.Booking;
 
@@ -13,7 +16,8 @@ import com.qa.bookings.object.Booking;
 public class Employee {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="native", strategy=GenerationType.AUTO)
+	@GenericGenerator(name="native", strategy="native")
 	private long employeeID;
 
 	@OneToMany(mappedBy = "employee")

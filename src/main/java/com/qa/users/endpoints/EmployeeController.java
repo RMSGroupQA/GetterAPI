@@ -29,11 +29,12 @@ public class EmployeeController {
 	@CrossOrigin
 	@PostMapping("/createEmployee")
 	public String createEmployee(@RequestBody Employee employee) {
-		if (service.createEmployee(employee).equals("This account already exists.")) {
-			return this.service.createEmployee(employee);
+		String status = service.createEmployee(employee);
+		if (status.equals("This account already exists.")) {
+			return status;
 		} else {
 			restTemplate.postForEntity(Constants.SEND_EMAIL, employee, String.class).getBody();
-			return this.service.createEmployee(employee);
+			return status;
 		}
 
 	}
@@ -41,8 +42,9 @@ public class EmployeeController {
 	@CrossOrigin
 	@GetMapping("/readEmployee/{email}")
 	public String readEmployee(@PathVariable("email") String email) {
-		if (this.service.readEmployee(email) != null) {
-			return this.service.readEmployee(email).toString();
+		Employee user = this.service.readEmployee(email);
+		if (user != null) {
+			return user.toString();
 		}
 		return Constants.EMPLOYEE_FAILURE;
 
