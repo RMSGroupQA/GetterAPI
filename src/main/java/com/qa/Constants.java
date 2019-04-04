@@ -2,7 +2,7 @@ package com.qa;
 
 public class Constants {
 	
-	public static final String SENDEMAIL= "http://51.141.6.150:8080/emailVerify/getters/sendEmail/sendCreateEmployee";
+	public static final String SENDEMAIL= "http://51.141.6.150:8085/emailVerify/getters/sendEmail/sendCreateEmployee";
 	
 	public static final String BOOK_FAILURE= "This booking doesn't exist.";
 	public static final String CREATE_BOOK= "Booking has been created. Your Booking ID is ";
